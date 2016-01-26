@@ -1,5 +1,38 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div.row
+		if user
+			div.col-md-4
+			div.col-md-4.text-center
+				form(action="poll", method='POST')
+					h1 New Poll
+					label Name your poll.
+					br
+					input.form-control.form-group(type='text', placeholder='What is your favorite brand?', id='poll', name='poll', required)
+					label Options
+					br
+					div(id='options')
+						input.form-control(type='text', placeholder='Coke', id='polls[0]', name='polls', required)
+						input.form-control(type='text', placeholder='Pepsi', id='polls[1]', name='polls', required)
+					div.col-md-12
+						div.col-md-3
+						button.btn.btn-default.btn-lg.col-md-6.opt(id='opt', type='button') More Options
+					div.col-md-12
+						div.col-md-3
+						button.btn.btn-success.btn-lg.col-md-6.opt(type='submit') Submit
+		else
+			div.col-md-4.text-center
+				i.fa.fa-bolt.icon
+				h2 Live Results
+				p Live graphs show your poll results immediately in an easy to understand format. One graph will not provide the whole picture, that's why we provide multiple graph types to better describe your results.
+			div.col-md-4.text-center
+				i.fa.fa-globe.icon
+				h2 Works Everywhere
+				p Traditional desktop computers now represent only 30% of Internet traffic. Your poll must work on the tablets, smart phones, netbooks and notebooks that your visitors are using. Our responsive designs do just that.
+			div.col-md-4.text-center
+				i.fa.fa-facebook.icon
+				h2 Social Integration
+				p Free integrated facebook or traditional comments allow your poll voters to provide immediate feedback and discuss results. Social share buttons encourage your poll voters to help spread the word.
+
+	script(type='text/javascript' src='/javascripts/index.js')

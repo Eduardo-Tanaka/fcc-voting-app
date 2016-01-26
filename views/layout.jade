@@ -1,7 +1,52 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+		link(rel='stylesheet', href="/bootstrap/dist/css/bootstrap.min.css")
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		div.container
+			nav.navbar.navbar-default
+				div.container-fluid
+					div.navbar-header
+						button.navbar-toggle(data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href="/") VotePlex
+
+					div.collapse.navbar-collapse(id="bs-example-navbar-collapse-1")
+						ul.nav.navbar-nav
+							li
+								a(href="/") Home
+						ul.nav.navbar-nav.navbar-right
+							if user
+								li 
+									a Hello #{user.username}!
+								li
+									a(href='/password') <i class='fa fa-gear'></i>
+								li 
+									a(href="/logout") Logout
+							else
+								li
+									a(href="/signup") Sign Up
+								li
+									a(href="/login") Login
+		div.text-center.background
+			if user
+				h1 Dashboard
+				h3 What would you like to do today?
+				a.btn.btn-success.btn-lg(href='/') New Poll
+				a.btn.btn-primary.btn-lg(href='/mypolls') My Polls
+			else
+				h1 Voteplex
+				h3 Create custom polls with live results.
+				if signup
+					a.btn.btn-success.btn-lg(href="/signup") Sign Up
+		div.container
+			
+			script(type='text/javascript' src='/jquery/dist/jquery.min.js')
+			block content
+	

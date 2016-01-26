@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	div.chart.text-center
+		input(type='hidden' value='#{id}' id='id')
+		<canvas id="myChart" width="400" height="400"></canvas>
+
+	script(src='/javascripts/chart.js')
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js')

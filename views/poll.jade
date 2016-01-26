@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	form(action='/poll/vote', method='post')
+		div.row
+			div.col-md-4
+				h1.text-center #{poll.title}?
+				p.text-center by #{poll.username}
+			div.col-md-4
+				each val in poll.options
+					div.form-group
+						input(type='radio', name='opt', id='#{val._id}', value='#{val._id}')= val.name
+						label(for='#{val._id}')= val.name
+						br
+				div.form-group
+					button.btn.btn-success.btn-lg Vote
+			div.col-md-4
+				p Sorry, no comments yet.

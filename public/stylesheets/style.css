@@ -1,8 +1,42 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: 800px;
 }
 
 a {
   color: #00B7FF;
 }
+
+.background {
+	background-color: #4393B9;
+	padding: 30px;
+	color: white;
+	margin-bottom: 50px;
+	margin-top: -20px;
+}
+
+.navbar-default {
+	background-color: white;
+	border-color: white;
+}
+
+.icon {
+	font-size: 5em;
+}
+
+.fa-bolt {
+	color: yellow;
+}
+
+.fa-globe {
+	color: green;
+}
+
+.fa-facebook {
+	color: blue;
+}
+
+.opt {
+	margin-top: 20px;
+}
+

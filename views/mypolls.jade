@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	if message
+		p(id='json') #{message}
+	div.row
+		div.col-md-4
+		di.col-md-4
+			each val in polls
+				div.row
+					div.col-md-8
+						a.btn.btn-default.form-control(href='/poll/pollresult/#{val._id}')= val.title 
+					div.col-md-4
+						a.btn.btn-default(href='/delete/#{val.id}') delete
